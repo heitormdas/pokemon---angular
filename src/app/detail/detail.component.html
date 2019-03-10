@@ -1,0 +1,110 @@
+<div class="alignView">
+  <form novalidate [formGroup]="formulario">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" formControlName="name" class="form-control">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Pokedex Number</label>
+      <div class="col-sm-2">
+        <input type="number" formControlName="pokedex" class="form-control">
+      </div>
+      <label class="col-sm-2 col-form-label textCenter">Generation</label>
+      <div class="col-sm-2">
+        <input type="number" formControlName="generation" class="form-control">
+      </div>
+      <label class="col-sm-2 col-form-label textCenter">Evolution Stage</label>
+      <div class="col-sm-2">
+        <input type="number" formControlName="evolution_stage" class="form-control">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">FamilyID</label>
+      <div class="col-sm-2">
+        <input type="number" formControlName="family_id" class="form-control">
+      </div>
+      <label class="col-sm-2 col-form-label textCenter">Type 1</label>
+      <div class="col-sm-2">
+        <input type="text" formControlName="type_one" class="form-control">
+      </div>
+      <label class="col-sm-2 col-form-label textCenter">Type 2</label>
+      <div class="col-sm-2">
+        <input type="text" formControlName="type_two" class="form-control">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Weather 1</label>
+      <div class="col-sm-2">
+        <input type="text" formControlName="weather_one" class="form-control">
+      </div>
+      <label class="col-sm-2 col-form-label textCenter">Weather 2</label>
+      <div class="col-sm-2">
+        <input type="text" formControlName="weather_two" class="form-control">
+      </div>
+      <label class="col-sm-2 col-form-label textCenter">Aquireable</label>
+      <div class="col-sm-2">
+        <input type="number" formControlName="aquireable" class="form-control">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Hatchable</label>
+      <div class="col-sm-2">
+        <input type="number" formControlName="hatchable" class="form-control">
+      </div>
+      <label class="col-sm-2 col-form-label textCenter">Raidable</label>
+      <div class="col-sm-2">
+        <input type="number" formControlName="raidable" class="form-control">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <label class="form-check-label">Evolved</label>
+        <input class="form-check-input" formControlName="evolved" type="checkbox">
+      </div>
+      <div class="col-sm-2">
+        <label class="form-check-label">Cross Gen</label>
+        <input class="form-check-input" formControlName="cross_gen" type="checkbox">
+      </div>
+      <div class="col-sm-2">
+        <label class="form-check-label">Legendary</label>
+        <input class="form-check-input" formControlName="legendary" type="checkbox">
+      </div>
+      <div class="col-sm-2">
+        <label class="form-check-label">Nest</label>
+        <input class="form-check-input" formControlName="nest" type="checkbox">
+      </div>
+      <div class="col-sm-2">
+        <label class="form-check-label">New</label>
+        <input class="form-check-input" formControlName="newpok" type="checkbox">
+      </div>
+      <div class="col-sm-2">
+        <label class="form-check-label">Not-Gettable</label>
+        <input class="form-check-input" formControlName="not_gettable" type="checkbox">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <label class="form-check-label">Future Evolve</label>
+        <input class="form-check-input" formControlName="future_evolve" type="checkbox">
+      </div>
+      <div class="col-sm-2">
+        <label class="form-check-label">Spawns</label>
+        <input class="form-check-input" formControlName="spawns" type="checkbox">
+      </div>
+      <div class="col-sm-2">
+        <label class="form-check-label">Regional</label>
+        <input class="form-check-input" formControlName="regional" type="checkbox">
+      </div>
+      <div class="col-sm-2">
+        <label class="form-check-label">Shiny</label>
+        <input class="form-check-input" formControlName="shiny" type="checkbox">
+      </div>
+    </div>
+    <div class="submitButton">
+      <Button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filters" role="button"
+        aria-expanded="false" (click)="actionDefine()" aria-controls="filters">{{action}}</Button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,151 @@
+<div class="center">
+  <div class="alignInsert">
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filters" role="button"
+      aria-expanded="false" aria-controls="filters">Filters</button>
+    <button type="button" class="btn btn-primary" (click)="insertPokemon()">Insert new pokemon</button>
+  </div>
+  <div class="collapse formFilter" id="filters">
+    <form novalidate [formGroup]="formulario" (submit)="onFilter()">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">name</label>
+        <div class="col-sm-10">
+          <input type="text" formControlName="name" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Pokedex Number</label>
+        <div class="col-sm-2">
+          <input type="number" formControlName="pokedex" class="form-control">
+        </div>
+        <label class="col-sm-2 col-form-label textCenter">Generation</label>
+        <div class="col-sm-2">
+          <input type="number" formControlName="generation" class="form-control">
+        </div>
+        <label class="col-sm-2 col-form-label textCenter">Evolution Stage</label>
+        <div class="col-sm-2">
+          <input type="number" formControlName="evolution_stage" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">FamilyID</label>
+        <div class="col-sm-2">
+          <input type="number" formControlName="family_id" class="form-control">
+        </div>
+        <label class="col-sm-2 col-form-label textCenter">Type 1</label>
+        <div class="col-sm-2">
+          <input type="text" formControlName="type_one" class="form-control">
+        </div>
+        <label class="col-sm-2 col-form-label textCenter">Type 2</label>
+        <div class="col-sm-2">
+          <input type="text" formControlName="type_two" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Weather 1</label>
+        <div class="col-sm-2">
+          <input type="text" formControlName="weather_one" class="form-control">
+        </div>
+        <label class="col-sm-2 col-form-label textCenter">Weather 2</label>
+        <div class="col-sm-2">
+          <input type="text" formControlName="weather_two" class="form-control">
+        </div>
+        <label class="col-sm-2 col-form-label textCenter">Aquireable</label>
+        <div class="col-sm-2">
+          <input type="number" formControlName="aquireable" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Hatchable</label>
+        <div class="col-sm-2">
+          <input type="number" formControlName="hatchable" class="form-control">
+        </div>
+        <label class="col-sm-2 col-form-label textCenter">Raidable</label>
+        <div class="col-sm-2">
+          <input type="number" formControlName="raidable" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label class="form-check-label">Evolved</label>
+          <input class="form-check-input" formControlName="evolved" type="checkbox">
+        </div>
+        <div class="col-sm-2">
+          <label class="form-check-label">Cross Gen</label>
+          <input class="form-check-input" formControlName="cross_gen" type="checkbox">
+        </div>
+        <div class="col-sm-2">
+          <label class="form-check-label">Legendary</label>
+          <input class="form-check-input" formControlName="legendary" type="checkbox">
+        </div>
+        <div class="col-sm-2">
+          <label class="form-check-label">Nest</label>
+          <input class="form-check-input" formControlName="nest" type="checkbox">
+        </div>
+        <div class="col-sm-2">
+          <label class="form-check-label">New</label>
+          <input class="form-check-input" formControlName="newpok" type="checkbox">
+        </div>
+        <div class="col-sm-2">
+          <label class="form-check-label">Not-Gettable</label>
+          <input class="form-check-input" formControlName="not_gettable" type="checkbox">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label class="form-check-label">Future Evolve</label>
+          <input class="form-check-input" formControlName="future_evolve" type="checkbox">
+        </div>
+        <div class="col-sm-2">
+          <label class="form-check-label">Spawns</label>
+          <input class="form-check-input" formControlName="spawns" type="checkbox">
+        </div>
+        <div class="col-sm-2">
+          <label class="form-check-label">Regional</label>
+          <input class="form-check-input" formControlName="regional" type="checkbox">
+        </div>
+        <div class="col-sm-2">
+          <label class="form-check-label">Shiny</label>
+          <input class="form-check-input" formControlName="shiny" type="checkbox">
+        </div>
+      </div>
+      <div class="submitButton">
+        <button class="btn btn-primary align" (click)=clear()>Clear</button>
+        <button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#filters" role="button"
+          aria-expanded="false" aria-controls="filters">Filtrar</button>
+      </div>
+    </form>
+  </div>
+  <div class="alignTable">
+    <table class="table table-hover table">
+      <thead>
+        <tr>
+          <th scope="col">Pokedex</th>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Weather</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let poke of pokemons">
+        <tr (click)="detailPokemon(poke)">
+          <th scope="row">{{poke.pokedex}}</th>
+          <td>{{poke.name}}</td>
+          <td>{{poke.type_one}}</td>
+          <td>{{poke.weather_one}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-end pagin">
+      <li class="page-item" disabled="currentPage == 1">
+        <a class="page-link" (click)="nextOrPrevious(currentPage.number-1)">Previous</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" [text]="currentPage.number" (click)="onFilter(currentPage)"></a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" (click)="nextOrPrevious(currentPage.number+1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

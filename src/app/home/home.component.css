@@ -1,0 +1,71 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-flow: column;
+}
+
+.alignTable {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.form-check-input {
+    position: absolute;
+    margin-top: 0.4rem;
+    margin-left: 0.75rem;
+}
+
+.pagin{
+    margin-top: 15px
+}
+
+.submitButton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 85px;
+}
+
+.table {
+    margin: 30px;
+}
+
+.textCenter {
+    text-align: center
+}
+
+.formFilter {
+    width: 100%;
+    padding: 30px;
+}
+
+.align {
+    margin-right: 10px
+}
+
+.alignInsert {
+    width: 100%;
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+@media(max-width: 600px) {
+    .table {
+        margin: 30px 0 0 0;
+    }
+    .textCenter {
+        text-align: left;
+    }
+    .submitButton {
+        padding-right: 0;
+    }
+}
