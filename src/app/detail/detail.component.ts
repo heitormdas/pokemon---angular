@@ -13,7 +13,7 @@ export class DetailComponent implements OnInit {
   public action: String
 
   public formulario: FormGroup = new FormGroup({
-    'pokedex': new FormControl({ value: null, disabled: true }),
+    'pokedex': new FormControl(null),
     'name': new FormControl(null),
     'generation': new FormControl(null),
     'evolution_stage': new FormControl(null),
@@ -54,10 +54,16 @@ export class DetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    var poke = this.pokemonService.getSelectedPokemon()
     if (this.action != 'Insert') {
-      this.formulario.setValue(this.pokemonService.getSelectedPokemon());
-      this.formulario.disable();
+      if (poke) {
+        this.formulario.setValue(poke);
+        this.formulario.disable();
+      } else {
+        this.router.navigateByUrl('/home');
+      }
     }
+    this.formulario.controls['pokedex'].disable();
   }
 
   actionDefine() {
@@ -71,20 +77,25 @@ export class DetailComponent implements OnInit {
   edit() {
     this.action = 'Confirm'
     this.formulario.enable();
+    this.formulario.controls['pokedex'].disable();
   }
 
   insertData() {
+    this.formulario.controls['pokedex'].enable();
     if (this.action == "Insert") {
       this.pokemonService.insertPokemon(this.formulario.value)
         .subscribe(response => {
+          this.formulario.value.pokedex = response.response[0]
           this.pokemonService.setSelectedPokemon(this.formulario.value);
+          this.formulario.reset();
           alert('Insert successful!!')
-          this.router.navigateByUrl('/edit');
+          this.router.navigateByUrl('/detail');
         })
-      } else {
-        this.pokemonService.updatePokemon(this.formulario.value)
+    } else {
+      this.pokemonService.updatePokemon(this.formulario.value)
         .subscribe(response => {
           this.pokemonService.setSelectedPokemon(this.formulario.value);
+          this.formulario.reset();
           this.action = 'Edit'
           alert('Update successful!!')
           this.ngOnInit();

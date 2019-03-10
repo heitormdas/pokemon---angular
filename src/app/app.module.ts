@@ -11,6 +11,7 @@ import { DetailComponent } from './detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PokemonService } from './pokemon.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,11 @@ import { PokemonService } from './pokemon.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [PokemonService],
+  providers: [PokemonService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
